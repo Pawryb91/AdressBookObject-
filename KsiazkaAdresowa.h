@@ -11,21 +11,22 @@ class KsiazkaAdresowa{
 
     UzytkownikManager uzytkownikManager;
     AdresatManager adresatManager;
+    Adresat adresat;
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami,string nazwaPlikuZAdresatami) : uzytkownikManager(nazwaPlikuZUzytkownikami),adresatManager(nazwaPlikuZAdresatami){
     uzytkownikManager.wczytajUzytkownikowZPliku();
-    //adresatManager.wczytajAdresatowZpliku();
+    //adresatManager.utworzPlikZDanymiAdresatow();
 };
 
     void rejestracjaUzytkownika();
     void wypiszWszytskichUzytkownikow();
     int logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
-    void ustawIdZalogowanegoUzytkownika(int Id);
+    void zmianaHaslaZalogowanegoUzytkownika();
     int pobierzIdZalogowaneUzytkownika();
     void wylogujUzytkownika();
-    void dodajNowegoAdresata(int idZalogowanegoUzytkownika);
-    void wyswieltAdresatow (vector <Adresat> adresaci);
+    void dodajNowegoAdresata();
+    void wyswietlAdresatow ();
+    vector <Adresat> wczytajAdresatowZPliku();
 
 
 

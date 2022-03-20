@@ -1,4 +1,6 @@
 #include "UzytkownikManager.h"
+#include "PlikiZAdresatami.h"
+#include "AdresatManager.h"
 
 void UzytkownikManager::rejestracjaUzytkownika(){
 
@@ -57,6 +59,7 @@ void UzytkownikManager::wypiszWszytskichUzytkownikow(){
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
+    system("pause");
 }
 
 void UzytkownikManager::wczytajUzytkownikowZPliku()
@@ -98,6 +101,7 @@ int UzytkownikManager::logowanieUzytkownika()
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
+
     return 0;
 }
 

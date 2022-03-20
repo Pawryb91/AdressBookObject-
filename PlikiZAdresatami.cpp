@@ -6,12 +6,11 @@ void PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
     plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
-
     if (plikTekstowy.good() == true)
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(adresat);
 
-        if (czyPlikJestPusty() == true)
+        if (czyPlikJestPusty(plikTekstowy) == true)
         {
             plikTekstowy << liniaZDanymiAdresata;
         }
@@ -19,6 +18,8 @@ void PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
         {
             plikTekstowy << endl << liniaZDanymiAdresata ;
         }
+
+
     }
     else
     {
@@ -28,9 +29,9 @@ void PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     system("pause");
 }
 
-bool PlikiZAdresatami::czyPlikJestPusty()
+bool PlikiZAdresatami::czyPlikJestPusty(fstream& plikTekstowy)
 {
-    fstream plikTekstowy;
+
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
@@ -56,7 +57,7 @@ string PlikiZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKres
 int PlikiZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
 {
     AdresatManager adresatManager("Adresaci.txt");
-    adresatManager.ustawIdOstatniegoAdresata(0);
+
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
@@ -70,11 +71,13 @@ int PlikiZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
     }
     else
         cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
-
+        adresatManager.ustawIdOstatniegoAdresata(0);
     if (daneOstaniegoAdresataWPliku != "")
     {
        adresatManager.ustawIdOstatniegoAdresata(pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku));
     }
+    //cout << adresatManager.pobierzIdOstatniegoAdresata() << endl;
+    //system("pause");
 return adresatManager.pobierzIdOstatniegoAdresata();
 }
 
@@ -85,7 +88,7 @@ int PlikiZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(stri
     return idAdresata;
 }
 
-vector<Adresat> PlikiZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int IdZalogowanegoUzytkownika)
+vector<Adresat> PlikiZAdresatami::wczytajAdresatowZPliku(int IdZalogowanegoUzytkownika)
 {
     Adresat adresat;
     vector <Adresat> adresaci;
@@ -117,6 +120,7 @@ vector<Adresat> PlikiZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
     {
         adresatManager.ustawIdOstatniegoAdresata(pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku));
     }
+    //system("pause");
     return adresaci;
 }
 

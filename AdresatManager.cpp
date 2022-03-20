@@ -1,13 +1,14 @@
 #include "AdresatManager.h"
 #include "MetodyPomocnicze.h"
 #include "UzytkownikManager.h"
+#include "Uzytkownik.h"
 
 Adresat AdresatManager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika) {
     Adresat adresat;
     MetodyPomocnicze metodyPomocnicze;
     PlikiZAdresatami plikZAdresatami("Adresaci.txt");
     UzytkownikManager uzytkownikManager("Uzytkownicy.txt");
-    adresat.ustawIdAdresata(plikZAdresatami.pobierzZPlikuIdOstatniegoAdresata() + 1); //(idOstatniegoAdresata + 1);
+    adresat.ustawIdAdresata((plikZAdresatami.pobierzZPlikuIdOstatniegoAdresata() + 1)); //(idOstatniegoAdresata + 1);
     adresat.ustawIdUzytkownikaAdresat(idZalogowanegoUzytkownika);
 
     cout << "Podaj imie: ";
@@ -27,28 +28,22 @@ Adresat AdresatManager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika) {
     cout << "Podaj adres: ";
     adresat.ustawAdresDomowyAdresata(metodyPomocnicze.wczytajLinie());
 
-    cout << "ustawIdUzytkownikaAdresat "  <<adresat.pobierzIdUzytkownikaAdresat() << endl;
-
-    cout << "TUTAJ " << adresat.pobierzIdUzytkownikaAdresat() << endl;
-
 
     return adresat;
 }
 
 void AdresatManager::dodajNowegoAdresata(int idZalogowanegoUzytkownika) {
-    Adresat adresat;
 
+    Adresat adresat;
     system("cls");
+
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
+
     adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
 
     adresaci.push_back(adresat);
 
-    cout << adresaci.size() << endl;
-    system("pause");
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
-
-    //return ++idOstatniegoAdresata;
 }
 
 void AdresatManager::ustawIdOstatniegoAdresata (int noweIdOstatniegoAdresata) {
@@ -56,7 +51,7 @@ void AdresatManager::ustawIdOstatniegoAdresata (int noweIdOstatniegoAdresata) {
 }
 
 int AdresatManager::pobierzIdOstatniegoAdresata () {
-    return IdOstatniegoAdresata;
+    return AdresatManager::IdOstatniegoAdresata;
 }
 
 void AdresatManager::wyswietlWszystkichAdresatow(vector <Adresat> adresaci)
@@ -89,9 +84,9 @@ void AdresatManager::wyswietlDaneAdresata(Adresat adresat)
     cout << "Adres:              " << adresat.pobierzAdresDomowyAdresata() << endl;
 }
 
-vector <Adresat> AdresatManager::wczytajAdresatowZalogowanegoUzytkownika(int IdZalogowanegoUzytkownika){
+vector <Adresat> AdresatManager::wczytajAdresatowZPliku(int IdZalogowanegoUzytkownika){
 PlikiZAdresatami plikZAdresatami("Adresaci.txt");
-return plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(IdZalogowanegoUzytkownika);
+return plikZAdresatami.wczytajAdresatowZPliku(IdZalogowanegoUzytkownika);
 }
 
 vector <Adresat> AdresatManager::pobierzVector(){
@@ -104,4 +99,8 @@ adresaci = Adresaci;
 void AdresatManager::wyczyscVector(){
 adresaci.clear();
 }
+
+//void AdresatManager::utworzPlikZDanymiAdresatow(){
+//plikZAdresatami.utworzPlikZDanymiAdresatow();
+//}
 
