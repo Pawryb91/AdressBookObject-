@@ -1,65 +1,59 @@
 #include "AdresatManager.h"
 #include "MetodyPomocnicze.h"
 #include "UzytkownikManager.h"
+#include "Uzytkownik.h"
 
-Adresat AdresatManager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika) {
+Adresat AdresatManager::podajDaneNowegoAdresata() {
     Adresat adresat;
-    MetodyPomocnicze metodyPomocnicze;
-    PlikiZAdresatami plikZAdresatami("Adresaci.txt");
-    UzytkownikManager uzytkownikManager("Uzytkownicy.txt");
-    adresat.ustawIdAdresata(plikZAdresatami.pobierzZPlikuIdOstatniegoAdresata() + 1); //(idOstatniegoAdresata + 1);
-    adresat.ustawIdUzytkownikaAdresat(idZalogowanegoUzytkownika);
+    string imie, nazwisko,numerTelefonu,email,adres;
+    adresat.ustawIdAdresata((plikZAdresatami.pobierzIdOstatniegoAdresata() + 1)); //(idOstatniegoAdresata + 1);
+    adresat.ustawIdUzytkownikaAdresat(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
-    adresat.ustawImieAdresata(metodyPomocnicze.wczytajLinie());
-    adresat.ustawImieAdresata(metodyPomocnicze.zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzImieAdresata()));
+    imie = MetodyPomocnicze::wczytajLinie();
+    imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
 
     cout << "Podaj nazwisko: ";
-    adresat.ustawNazwiskoAdresata(metodyPomocnicze.wczytajLinie());
-    adresat.ustawNazwiskoAdresata(metodyPomocnicze.zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzNazwiskoAdresata()));
+    nazwisko = MetodyPomocnicze::wczytajLinie();
+    nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
 
     cout << "Podaj numer telefonu: ";
-    adresat.ustawNrTelefonuAdresata(metodyPomocnicze.wczytajLinie());
+    numerTelefonu = MetodyPomocnicze::wczytajLinie();
 
     cout << "Podaj email: ";
-    adresat.ustawAdresEmailAdresata(metodyPomocnicze.wczytajLinie());
+    email = MetodyPomocnicze::wczytajLinie();
 
     cout << "Podaj adres: ";
-    adresat.ustawAdresDomowyAdresata(metodyPomocnicze.wczytajLinie());
+    adres = MetodyPomocnicze::wczytajLinie();
 
-    cout << "ustawIdUzytkownikaAdresat "  <<adresat.pobierzIdUzytkownikaAdresat() << endl;
-
-    cout << "TUTAJ " << adresat.pobierzIdUzytkownikaAdresat() << endl;
-
+    adresat.ustawImieAdresata(imie);
+    adresat.ustawNazwiskoAdresata(nazwisko);
+    adresat.ustawNrTelefonuAdresata(numerTelefonu);
+    adresat.ustawAdresEmailAdresata(email);
+    adresat.ustawAdresDomowyAdresata(adres);
 
     return adresat;
 }
 
-void AdresatManager::dodajNowegoAdresata(int idZalogowanegoUzytkownika) {
-    Adresat adresat;
+void AdresatManager::dodajNowegoAdresata() {
 
+    Adresat adresat;
     system("cls");
+
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
+
+    adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-
-    cout << adresaci.size() << endl;
+    if(plikZAdresatami.dopiszAdresataDoPliku(adresat))
+        cout << "Nowy adresat zostal dodany" << endl;
+    else
+        cout << "Blad. Nie udalo sie dodac nowego adresata do pliku." << endl;
     system("pause");
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);
-
-    //return ++idOstatniegoAdresata;
 }
 
-void AdresatManager::ustawIdOstatniegoAdresata (int noweIdOstatniegoAdresata) {
-    IdOstatniegoAdresata = noweIdOstatniegoAdresata;
-}
 
-int AdresatManager::pobierzIdOstatniegoAdresata () {
-    return IdOstatniegoAdresata;
-}
-
-void AdresatManager::wyswietlWszystkichAdresatow(vector <Adresat> adresaci)
+void AdresatManager::wyswietlWszystkichAdresatow()
 {
     system("cls");
     if (!adresaci.empty())
@@ -89,19 +83,8 @@ void AdresatManager::wyswietlDaneAdresata(Adresat adresat)
     cout << "Adres:              " << adresat.pobierzAdresDomowyAdresata() << endl;
 }
 
-vector <Adresat> AdresatManager::wczytajAdresatowZalogowanegoUzytkownika(int IdZalogowanegoUzytkownika){
-PlikiZAdresatami plikZAdresatami("Adresaci.txt");
-return plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(IdZalogowanegoUzytkownika);
-}
 
-vector <Adresat> AdresatManager::pobierzVector(){
-return adresaci;
-}
-
-void AdresatManager::ustawVector(vector <Adresat> Adresaci){
-adresaci = Adresaci;
-}
-void AdresatManager::wyczyscVector(){
-adresaci.clear();
-}
+//void AdresatManager::utworzPlikZDanymiAdresatow(){
+//plikZAdresatami.utworzPlikZDanymiAdresatow();
+//}
 

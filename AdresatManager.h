@@ -6,31 +6,28 @@
 
 #include "Adresat.h"
 #include "PlikiZAdresatami.h"
+#include "UzytkownikManager.h"
 
 using namespace std;
 
 class AdresatManager{
 
+const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
 vector <Adresat> adresaci;
-int IdOstatniegoAdresata;
 PlikiZAdresatami plikZAdresatami;
 
-Adresat podajDaneNowegoAdresata(int IdZalogowanegoUzytkownika);
-
+Adresat podajDaneNowegoAdresata();
+void wyswietlDaneAdresata (Adresat adresat);
 
 public:
 
-    AdresatManager (string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
-    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownika(int IdZalogowanegoUzytkownika);
-    void wypiszWszytskichAdresatow (int IdZalogowanegoUzytkownika);
-    void dodajNowegoAdresata(int idZalogowanegoUzytkownika);
-    void ustawIdOstatniegoAdresata (int noweIdOstatniegoAdresata);
-    int pobierzIdOstatniegoAdresata ();
-    void wyswietlWszystkichAdresatow(vector <Adresat> adresaci);
-    void wyswietlDaneAdresata(Adresat adresat);
-    vector <Adresat> pobierzVector();
-    void ustawVector(vector <Adresat> adresaci);
-    void wyczyscVector();
+    AdresatManager (string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
+     : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika) {
+     adresaci = plikZAdresatami.wczytajAdresatowZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+     };
+
+    void dodajNowegoAdresata();
+    void wyswietlWszystkichAdresatow();
 
 };
 

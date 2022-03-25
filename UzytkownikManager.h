@@ -20,15 +20,19 @@ class UzytkownikManager{
     bool czyIstniejeLogin(string login);
     PlikiZUzytkownikami plikZUzytkownikami;
 
+
 public:
-    UzytkownikManager (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
+    UzytkownikManager (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+    idZalogowanegoUzytkownika = 0;
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
     void rejestracjaUzytkownika();
     void wypiszWszytskichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
     void ustawIdZalogowanegoUzytkownika (int Id);
     int pobierzIdZalogowanegoUzytkownika ();
     void wylogujUzytkownika();
+    bool czyUzytkownikJestZalogowany();
 };
 #endif // UZYTKOWNIKMANAGER_H

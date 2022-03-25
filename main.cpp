@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 #include "KsiazkaAdresowa.h"
 
@@ -7,36 +8,51 @@ using namespace std;
 
 int main()
 {
-    Adresat adresat;
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
-    PlikiZUzytkownikami plik("Uzytkownicy.txt");
-    UzytkownikManager uzytkownikManager ("Uzytkownicy.txt");
-    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
+    char wybor;
 
-    ksiazkaAdresowa.rejestracjaUzytkownika();
+    while (true)
+    {
+        if (!ksiazkaAdresowa.czyUzytkownikJestZalogowany())
+        {
+            wybor = ksiazkaAdresowa.wyborOpcjiZMenuGlownego();
 
-    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
-    cin.ignore();
-    ksiazkaAdresowa.ustawIdZalogowanegoUzytkownika(ksiazkaAdresowa.logowanieUzytkownika());
-    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika(ksiazkaAdresowa.pobierzIdZalogowaneUzytkownika());
-    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
-
-    AdresatManager adresatManager("Adresaci.txt");
-
-    adresatManager.ustawVector(adresatManager.wczytajAdresatowZalogowanegoUzytkownika(ksiazkaAdresowa.pobierzIdZalogowaneUzytkownika()));
-
-    ksiazkaAdresowa.wyswieltAdresatow(adresatManager.pobierzVector());
-    ksiazkaAdresowa.dodajNowegoAdresata(ksiazkaAdresowa.pobierzIdZalogowaneUzytkownika());
-    ksiazkaAdresowa.wyswieltAdresatow(adresatManager.pobierzVector());
-    ksiazkaAdresowa.wylogujUzytkownika();
-    adresatManager.ustawVector(adresatManager.wczytajAdresatowZalogowanegoUzytkownika(ksiazkaAdresowa.pobierzIdZalogowaneUzytkownika()));
-    ksiazkaAdresowa.wyswieltAdresatow(adresatManager.pobierzVector());
-    ksiazkaAdresowa.wypiszWszytskichUzytkownikow();
-
-
-    //ksiazkaAdresowa.wylogujUzytkownika();
-
-
-
+            switch (wybor)
+            {
+            case '1':
+                ksiazkaAdresowa.rejestracjaUzytkownika();
+                break;
+            case '2':
+                ksiazkaAdresowa.logowanieUzytkownika();
+                break;
+            case '9':
+                exit(0);
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
+        }
+        else
+        {
+            wybor = ksiazkaAdresowa.wyborOpcjiZMenuUzytkownika();
+            switch (wybor)
+            {
+            case '1':
+                ksiazkaAdresowa.dodajNowegoAdresata();
+                break;
+            case '2':
+                ksiazkaAdresowa.wyswietlAdresatow();
+                break;
+            case '3':
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                break;
+            case '9':
+                ksiazkaAdresowa.wylogujUzytkownika();
+                break;
+            }
+        }
+    }
     return 0;
 }

@@ -1,4 +1,6 @@
 #include "UzytkownikManager.h"
+#include "PlikiZAdresatami.h"
+#include "AdresatManager.h"
 
 void UzytkownikManager::rejestracjaUzytkownika(){
 
@@ -57,21 +59,17 @@ void UzytkownikManager::wypiszWszytskichUzytkownikow(){
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
-}
-
-void UzytkownikManager::wczytajUzytkownikowZPliku()
-{
-  uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    system("pause");
 }
 
 int UzytkownikManager::logowanieUzytkownika()
 {
-    Uzytkownik uzytkownik;
     MetodyPomocnicze metodyPomocnicze;
+
     string login = "", haslo = "";
 
     cout << "Podaj login: ";
-    login = metodyPomocnicze.wczytajLinie(); //dlaczego tutaj nie dzia³a operator zasiegu a w przypadku konwersjaIntNaString wystarczy ::
+    login = metodyPomocnicze.wczytajLinie();
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     while (itr != uzytkownicy.end())
@@ -87,7 +85,8 @@ int UzytkownikManager::logowanieUzytkownika()
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return itr -> Uzytkownik::pobierzId();
+                    idZalogowanegoUzytkownika = itr -> Uzytkownik::pobierzId();
+                    return idZalogowanegoUzytkownika;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
@@ -98,6 +97,7 @@ int UzytkownikManager::logowanieUzytkownika()
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
+
     return 0;
 }
 
@@ -122,15 +122,24 @@ void UzytkownikManager::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzy
 }
 
 void UzytkownikManager::ustawIdZalogowanegoUzytkownika (int Id) {
-    UzytkownikManager::idZalogowanegoUzytkownika = Id;
+    idZalogowanegoUzytkownika = Id;
 }
+bool UzytkownikManager::czyUzytkownikJestZalogowany(){
+if(idZalogowanegoUzytkownika > 0)
+    return true;
+else
+    return false;
+}
+
 int UzytkownikManager::pobierzIdZalogowanegoUzytkownika (){
-return UzytkownikManager::idZalogowanegoUzytkownika;
+return idZalogowanegoUzytkownika;
 }
 
 void UzytkownikManager::wylogujUzytkownika(){
-UzytkownikManager::idZalogowanegoUzytkownika = 0;
+idZalogowanegoUzytkownika = 0;
 };
+
+
 
 
 

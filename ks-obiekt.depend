@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1647393147 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\adresat.cpp
+	"Adresat.h"
+
+1647393148 c:\users\pawe許desktop\codeblocks\adressbookobject-\adresat.h
+	<iostream>
+
+1648169466 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.cpp
+	"AdresatManager.h"
+	"MetodyPomocnicze.h"
+	"UzytkownikManager.h"
+	"Uzytkownik.h"
+
+1648166405 c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.h
+	<iostream>
+	<vector>
+	"Adresat.h"
+	"PlikiZAdresatami.h"
+	"UzytkownikManager.h"
+
+1648167534 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"Adresat.h"
+	"MetodyPomocnicze.h"
+
+1648165428 c:\users\pawe許desktop\codeblocks\adressbookobject-\metodypomocnicze.h
+	<iostream>
+	<sstream>
+
+1648168434 c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownikmanager.h
+	<iostream>
+	<vector>
+	<windows.h>
+	"Uzytkownik.h"
+	"PlikiZUzytkownikami.h"
+
+1647394582 c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownik.h
+	<iostream>
+
+1647991808 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizuzytkownikami.h
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"Uzytkownik.h"
+	"MetodyPomocnicze.h"
+
+1648168791 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.cpp
+	"KsiazkaAdresowa.h"
+	<iostream>
+
+1648168791 c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.h
+	<iostream>
+	"UzytkownikManager.h"
+	"AdresatManager.h"
+
+1648146475 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\metodypomocnicze.cpp
+	<iostream>
+	<sstream>
+	<algorithm>
+	"MetodyPomocnicze.h"
+
+1648167735 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
+	"PlikiZAdresatami.h"
+	"AdresatManager.h"
+
+1647991879 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizuzytkownikami.cpp
+	"PlikiZUzytkownikami.h"
+
+1647393148 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownik.cpp
+	"Uzytkownik.h"
+
+1648165254 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownikmanager.cpp
+	"UzytkownikManager.h"
+	"PlikiZAdresatami.h"
+	"AdresatManager.h"
+
+1648168791 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\main.cpp
+	<iostream>
+	<cstdlib>
+	"KsiazkaAdresowa.h"
+

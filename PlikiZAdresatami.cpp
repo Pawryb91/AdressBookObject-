@@ -1,17 +1,16 @@
 #include "PlikiZAdresatami.h"
 #include "AdresatManager.h"
 
-void PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
+bool PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
-
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
     if (plikTekstowy.good() == true)
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(adresat);
 
-        if (czyPlikJestPusty() == true)
+        if (czyPlikJestPusty(plikTekstowy) == true)
         {
             plikTekstowy << liniaZDanymiAdresata;
         }
@@ -19,18 +18,16 @@ void PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
         {
             plikTekstowy << endl << liniaZDanymiAdresata ;
         }
+        IdOstatniegoAdresata++;
+        plikTekstowy.close();
+        return true;
     }
-    else
-    {
-        cout << "Nie udalo sie otworzyc pliku i zapisac w nim danych." << endl;
-    }
-    plikTekstowy.close();
-    system("pause");
+    return false;
 }
 
-bool PlikiZAdresatami::czyPlikJestPusty()
+bool PlikiZAdresatami::czyPlikJestPusty(fstream& plikTekstowy)
 {
-    fstream plikTekstowy;
+
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
         return true;
@@ -53,14 +50,13 @@ string PlikiZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKres
     return liniaZDanymiAdresata;
 }
 
+/*
 int PlikiZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
 {
-    AdresatManager adresatManager("Adresaci.txt");
-    adresatManager.ustawIdOstatniegoAdresata(0);
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
@@ -70,12 +66,18 @@ int PlikiZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
     }
     else
         cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
-
     if (daneOstaniegoAdresataWPliku != "")
     {
        adresatManager.ustawIdOstatniegoAdresata(pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku));
     }
-return adresatManager.pobierzIdOstatniegoAdresata();
+
+return IdOstatniegoAdresata;
+}
+*/
+
+int PlikiZAdresatami::pobierzIdOstatniegoAdresata()
+{
+    return IdOstatniegoAdresata;
 }
 
 int PlikiZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
@@ -85,16 +87,14 @@ int PlikiZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(stri
     return idAdresata;
 }
 
-vector<Adresat> PlikiZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int IdZalogowanegoUzytkownika)
+vector<Adresat> PlikiZAdresatami::wczytajAdresatowZPliku(int IdZalogowanegoUzytkownika)
 {
     Adresat adresat;
     vector <Adresat> adresaci;
-    AdresatManager adresatManager("Adresaci.txt");
-    adresatManager.ustawIdOstatniegoAdresata(0);
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
@@ -107,16 +107,14 @@ vector<Adresat> PlikiZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
             }
         }
         daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+        plikTekstowy.close();
     }
-    else
-        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
-
-    plikTekstowy.close();
 
     if (daneOstaniegoAdresataWPliku != "")
     {
-        adresatManager.ustawIdOstatniegoAdresata(pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku));
+        IdOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
     }
+
     return adresaci;
 }
 
