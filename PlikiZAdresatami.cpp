@@ -5,11 +5,8 @@ bool PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-<<<<<<< HEAD
+
     plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
-=======
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
->>>>>>> refs/remotes/origin/main
     if (plikTekstowy.good() == true)
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(adresat);
@@ -22,14 +19,9 @@ bool PlikiZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
         {
             plikTekstowy << endl << liniaZDanymiAdresata ;
         }
-<<<<<<< HEAD
         IdOstatniegoAdresata++;
         plikTekstowy.close();
         return true;
-=======
-
-
->>>>>>> refs/remotes/origin/main
     }
     return false;
 }
@@ -57,51 +49,6 @@ string PlikiZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKres
     liniaZDanymiAdresata += adresat.pobierzAdresDomowyAdresata() + '|';
 
     return liniaZDanymiAdresata;
-}
-
-/*
-int PlikiZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
-{
-<<<<<<< HEAD
-=======
-    AdresatManager adresatManager("Adresaci.txt");
-
->>>>>>> refs/remotes/origin/main
-    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
-    string daneOstaniegoAdresataWPliku = "";
-    fstream plikTekstowy;
-    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
-
-    if (plikTekstowy.good() == true)
-    {
-        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {}
-            daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
-            plikTekstowy.close();
-    }
-    else
-        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
-<<<<<<< HEAD
-=======
-        adresatManager.ustawIdOstatniegoAdresata(0);
->>>>>>> refs/remotes/origin/main
-    if (daneOstaniegoAdresataWPliku != "")
-    {
-       adresatManager.ustawIdOstatniegoAdresata(pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku));
-    }
-<<<<<<< HEAD
-
-return IdOstatniegoAdresata;
-}
-*/
-
-int PlikiZAdresatami::pobierzIdOstatniegoAdresata()
-{
-    return IdOstatniegoAdresata;
-=======
-    //cout << adresatManager.pobierzIdOstatniegoAdresata() << endl;
-    //system("pause");
-return adresatManager.pobierzIdOstatniegoAdresata();
->>>>>>> refs/remotes/origin/main
 }
 
 int PlikiZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
@@ -138,11 +85,7 @@ vector<Adresat> PlikiZAdresatami::wczytajAdresatowZPliku(int IdZalogowanegoUzytk
     {
         IdOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
     }
-<<<<<<< HEAD
 
-=======
-    //system("pause");
->>>>>>> refs/remotes/origin/main
     return adresaci;
 }
 
@@ -200,4 +143,8 @@ Adresat PlikiZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePiono
         }
     }
     return adresat;
+}
+
+int PlikiZAdresatami::pobierzIdOstatniegoAdresata(){
+return IdOstatniegoAdresata;
 }

@@ -60,15 +60,8 @@ void UzytkownikManager::wypiszWszytskichUzytkownikow(){
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
     system("pause");
-<<<<<<< HEAD
-=======
 }
 
-void UzytkownikManager::wczytajUzytkownikowZPliku()
-{
-  uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
->>>>>>> refs/remotes/origin/main
-}
 
 int UzytkownikManager::logowanieUzytkownika()
 {

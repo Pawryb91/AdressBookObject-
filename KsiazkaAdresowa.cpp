@@ -1,22 +1,16 @@
 #include "KsiazkaAdresowa.h"
 #include <iostream>
 
-<<<<<<< HEAD
-void KsiazkaAdresowa::rejestracjaUzytkownika() {
-    cout << "REJESTRACJA "<< endl << endl;
-    uzytkownikManager.rejestracjaUzytkownika();
-=======
+
 void KsiazkaAdresowa::rejestracjaUzytkownika(){
     cout << "REJESTRACJA "<< endl << endl;
 uzytkownikManager.rejestracjaUzytkownika();
->>>>>>> refs/remotes/origin/main
 }
 
 void KsiazkaAdresowa::wypiszWszytskichUzytkownikow() {
     uzytkownikManager.wypiszWszytskichUzytkownikow();
 }
 
-<<<<<<< HEAD
 KsiazkaAdresowa::logowanieUzytkownika() {
 
     uzytkownikManager.logowanieUzytkownika();
@@ -26,22 +20,9 @@ KsiazkaAdresowa::logowanieUzytkownika() {
 
 }
 
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
-
-    uzytkownikManager.zmianaHaslaZalogowanegoUzytkownika(uzytkownikManager.pobierzIdZalogowanegoUzytkownika());
-=======
-KsiazkaAdresowa::logowanieUzytkownika(){
-system("cls");
-cout << "LOGOWANIE "<< endl << endl;
-cout << "PRESS ENTER TO CONTINUE..." << endl;
-cin.ignore();
-uzytkownikManager.ustawIdZalogowanegoUzytkownika(uzytkownikManager.logowanieUzytkownika());
-}
-
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(){
 
 uzytkownikManager.zmianaHaslaZalogowanegoUzytkownika(uzytkownikManager.pobierzIdZalogowanegoUzytkownika());
->>>>>>> refs/remotes/origin/main
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika() {
@@ -52,7 +33,6 @@ void KsiazkaAdresowa::wylogujUzytkownika() {
     system("pause");
 }
 
-<<<<<<< HEAD
 void KsiazkaAdresowa::dodajNowegoAdresata() {
     if (uzytkownikManager.czyUzytkownikJestZalogowany())
     {
@@ -84,27 +64,8 @@ char KsiazkaAdresowa::wyborOpcjiZMenuGlownego() {
     wybor = MetodyPomocnicze::wczytajZnak();
 
     return wybor;
-=======
-void KsiazkaAdresowa::wylogujUzytkownika(){
-uzytkownikManager.wylogujUzytkownika();
-adresatManager.wyczyscVector();
-cout << "Wylogowano uzytkownika" << endl;
-system("pause");
 }
 
-void KsiazkaAdresowa::dodajNowegoAdresata(){
-adresatManager.dodajNowegoAdresata(uzytkownikManager.pobierzIdZalogowanegoUzytkownika());
-}
-void KsiazkaAdresowa::wyswietlAdresatow (){
-adresatManager.ustawVector(adresatManager.wczytajAdresatowZPliku(uzytkownikManager.pobierzIdZalogowanegoUzytkownika()));
-adresatManager.wyswietlWszystkichAdresatow(adresatManager.pobierzVector());
-}
-
-vector <Adresat> KsiazkaAdresowa::wczytajAdresatowZPliku(){
-
-adresatManager.wczytajAdresatowZPliku(uzytkownikManager.pobierzIdZalogowanegoUzytkownika());
->>>>>>> refs/remotes/origin/main
-}
 
 char KsiazkaAdresowa::wyborOpcjiZMenuUzytkownika(){
 

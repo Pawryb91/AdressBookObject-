@@ -1,36 +1,66 @@
 # depslib dependency file v1.0
-1647393147 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\adresat.cpp
+1648171011 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\adresat.cpp
 	"Adresat.h"
 
-1647393148 c:\users\pawe許desktop\codeblocks\adressbookobject-\adresat.h
+1648171035 c:\users\pawe許desktop\codeblocks\adressbookobject-\adresat.h
 	<iostream>
 
-<<<<<<< HEAD
-1648169466 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.cpp
-=======
-1647736843 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.cpp
->>>>>>> refs/remotes/origin/main
+1647809372 D
+
+1648171426 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.cpp
 	"AdresatManager.h"
 	"MetodyPomocnicze.h"
 	"UzytkownikManager.h"
 	"Uzytkownik.h"
 
-<<<<<<< HEAD
-1648166405 c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.h
-=======
-1647572967 c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.h
->>>>>>> refs/remotes/origin/main
+1647809569 s/remotes/origin/main
+	"AdresatManager.h"
+	"MetodyPomocnicze.h"
+	"UzytkownikManager.h"
+	"Uzytkownik.h"
+	<iostream>
+	<vector>
+	"Adresat.h"
+	"PlikiZAdresatami.h"
+	"UzytkownikManager.h"
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"Adresat.h"
+	"MetodyPomocnicze.h"
+	<iostream>
+	<vector>
+	<windows.h>
+	"Uzytkownik.h"
+	"PlikiZUzytkownikami.h"
+	<iostream>
+	<fstream>
+	<vector>
+	<cstdlib>
+	"Uzytkownik.h"
+	"MetodyPomocnicze.h"
+	<iostream>
+	"UzytkownikManager.h"
+	"AdresatManager.h"
+	<iostream>
+	<sstream>
+	<algorithm>
+	"MetodyPomocnicze.h"
+	"PlikiZUzytkownikami.h"
+	"UzytkownikManager.h"
+	"PlikiZAdresatami.h"
+	"AdresatManager.h"
+	"KsiazkaAdresowa.h"
+
+1648171707 c:\users\pawe許desktop\codeblocks\adressbookobject-\adresatmanager.h
 	<iostream>
 	<vector>
 	"Adresat.h"
 	"PlikiZAdresatami.h"
 	"UzytkownikManager.h"
 
-<<<<<<< HEAD
-1648167534 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
-=======
-1647736102 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
->>>>>>> refs/remotes/origin/main
+1648171582 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
 	<iostream>
 	<fstream>
 	<vector>
@@ -38,19 +68,11 @@
 	"Adresat.h"
 	"MetodyPomocnicze.h"
 
-<<<<<<< HEAD
 1648165428 c:\users\pawe許desktop\codeblocks\adressbookobject-\metodypomocnicze.h
 	<iostream>
 	<sstream>
 
 1648168434 c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownikmanager.h
-=======
-1647393148 c:\users\pawe許desktop\codeblocks\adressbookobject-\metodypomocnicze.h
-	<iostream>
-	<sstream>
-
-1647393148 c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownikmanager.h
->>>>>>> refs/remotes/origin/main
 	<iostream>
 	<vector>
 	<windows.h>
@@ -60,11 +82,7 @@
 1647394582 c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownik.h
 	<iostream>
 
-<<<<<<< HEAD
 1647991808 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizuzytkownikami.h
-=======
-1647735741 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizuzytkownikami.h
->>>>>>> refs/remotes/origin/main
 	<iostream>
 	<fstream>
 	<vector>
@@ -72,67 +90,40 @@
 	"Uzytkownik.h"
 	"MetodyPomocnicze.h"
 
-<<<<<<< HEAD
-1648168791 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.cpp
+1648170807 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.cpp
 	"KsiazkaAdresowa.h"
 	<iostream>
 
-1648168791 c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.h
-=======
-1647809793 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.cpp
-	"KsiazkaAdresowa.h"
-	<iostream>
-
-1647572075 c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.h
->>>>>>> refs/remotes/origin/main
+1648170807 c:\users\pawe許desktop\codeblocks\adressbookobject-\ksiazkaadresowa.h
 	<iostream>
 	"UzytkownikManager.h"
 	"AdresatManager.h"
 
-<<<<<<< HEAD
 1648146475 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\metodypomocnicze.cpp
-=======
-1647393148 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\metodypomocnicze.cpp
->>>>>>> refs/remotes/origin/main
 	<iostream>
 	<sstream>
 	<algorithm>
 	"MetodyPomocnicze.h"
 
-<<<<<<< HEAD
-1648167735 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
+1648171582 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
 	"PlikiZAdresatami.h"
 	"AdresatManager.h"
 
 1647991879 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizuzytkownikami.cpp
-=======
-1647736843 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
-	"PlikiZAdresatami.h"
-	"AdresatManager.h"
-
-1647735748 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizuzytkownikami.cpp
->>>>>>> refs/remotes/origin/main
 	"PlikiZUzytkownikami.h"
 
 1647393148 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownik.cpp
 	"Uzytkownik.h"
 
-<<<<<<< HEAD
-1648165254 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownikmanager.cpp
-=======
-1647809372 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownikmanager.cpp
->>>>>>> refs/remotes/origin/main
+1648171761 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\uzytkownikmanager.cpp
 	"UzytkownikManager.h"
 	"PlikiZAdresatami.h"
 	"AdresatManager.h"
 
-<<<<<<< HEAD
-1648168791 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\main.cpp
+1648170807 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\main.cpp
 	<iostream>
 	<cstdlib>
-=======
-1647809569 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\main.cpp
-	<iostream>
->>>>>>> refs/remotes/origin/main
 	"KsiazkaAdresowa.h"
+
+1648168791 
 
