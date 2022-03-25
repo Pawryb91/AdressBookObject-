@@ -10,6 +10,7 @@ using namespace std;
 class KsiazkaAdresowa{
 
     UzytkownikManager uzytkownikManager;
+<<<<<<< HEAD
     AdresatManager *adresatManager;
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
@@ -18,6 +19,14 @@ public:
         : uzytkownikManager(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
 
     adresatManager = NULL;
+=======
+    AdresatManager adresatManager;
+    Adresat adresat;
+public:
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami,string nazwaPlikuZAdresatami) : uzytkownikManager(nazwaPlikuZUzytkownikami),adresatManager(nazwaPlikuZAdresatami){
+    uzytkownikManager.wczytajUzytkownikowZPliku();
+    //adresatManager.utworzPlikZDanymiAdresatow();
+>>>>>>> refs/remotes/origin/main
 };
 ~KsiazkaAdresowa(){
 delete adresatManager;
@@ -28,12 +37,20 @@ adresatManager = NULL;
     void wypiszWszytskichUzytkownikow();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+<<<<<<< HEAD
     void wylogujUzytkownika();
     void dodajNowegoAdresata();
     void wyswietlAdresatow ();
     char wyborOpcjiZMenuGlownego();
     bool czyUzytkownikJestZalogowany();
     char wyborOpcjiZMenuUzytkownika();
+=======
+    int pobierzIdZalogowaneUzytkownika();
+    void wylogujUzytkownika();
+    void dodajNowegoAdresata();
+    void wyswietlAdresatow ();
+    vector <Adresat> wczytajAdresatowZPliku();
+>>>>>>> refs/remotes/origin/main
 
 
 
