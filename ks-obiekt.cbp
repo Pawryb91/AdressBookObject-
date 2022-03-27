@@ -40,6 +40,8 @@
 		<Unit filename="KsiazkaAdresowa.h" />
 		<Unit filename="MetodyPomocnicze.cpp" />
 		<Unit filename="MetodyPomocnicze.h" />
+		<Unit filename="PlikTekstowy.cpp" />
+		<Unit filename="PlikTekstowy.h" />
 		<Unit filename="PlikiZAdresatami.cpp" />
 		<Unit filename="PlikiZAdresatami.h" />
 		<Unit filename="PlikiZUzytkownikami.cpp" />

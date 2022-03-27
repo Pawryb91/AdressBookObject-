@@ -14,8 +14,8 @@ class KsiazkaAdresowa{
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami,string nazwaPlikuZAdresatami)
-        : uzytkownikManager(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
+    KsiazkaAdresowa(string nazwaPliku,string nazwaPlikuZAdresatami)
+        : uzytkownikManager(nazwaPliku), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
 
     adresatManager = NULL;
 };

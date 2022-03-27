@@ -2,6 +2,7 @@
 #include "MetodyPomocnicze.h"
 #include "UzytkownikManager.h"
 #include "Uzytkownik.h"
+#include "PlikTekstowy.h"
 
 Adresat AdresatManager::podajDaneNowegoAdresata() {
     Adresat adresat;

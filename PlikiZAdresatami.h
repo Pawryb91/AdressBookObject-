@@ -8,16 +8,15 @@
 
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
-class PlikiZAdresatami{
+class PlikiZAdresatami : public PlikTekstowy {
 
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
     string NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI;
     int IdOstatniegoAdresata;
 
-    bool czyPlikJestPusty(fstream& plikTekstowy);
     string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     Adresat pobierzDaneAdresata(string daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -27,11 +26,10 @@ class PlikiZAdresatami{
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
 
 
-
 public:
-    PlikiZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami){
+    PlikiZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku){
         IdOstatniegoAdresata = 0;
-        NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI = "temp" + nazwaPlikuZAdresatami;
+        NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI = "temp" + pobierzNazwePliku();
     };
     bool dopiszAdresataDoPliku (Adresat adresaci);
     int pobierzIdOstatniegoAdresata();
