@@ -18,6 +18,10 @@ PlikiZAdresatami plikZAdresatami;
 
 Adresat podajDaneNowegoAdresata();
 void wyswietlDaneAdresata (Adresat adresat);
+int podajIdWybranegoAdresata();
+char wybierzOpcjeZMenuEdycja();
+void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
 
 
@@ -31,6 +35,10 @@ public:
     void dodajNowegoAdresata();
     void wyswietlWszystkichAdresatow();
 
+    void edytujAdresata();
+    void usunAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 };
 
 

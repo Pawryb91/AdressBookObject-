@@ -35,7 +35,10 @@ adresatManager = NULL;
     char wyborOpcjiZMenuGlownego();
     bool czyUzytkownikJestZalogowany();
     char wyborOpcjiZMenuUzytkownika();
-
+    void edytujAdresata();
+    void usunAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
 
 };
 #endif // KSIAZKAADRESOWA_H

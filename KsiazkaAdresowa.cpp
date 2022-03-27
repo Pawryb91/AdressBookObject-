@@ -71,13 +71,18 @@ char KsiazkaAdresowa::wyborOpcjiZMenuUzytkownika(){
 
 char wybor;
 
-    system("cls");
-    cout << "    >>> MENU  UZYTKOWNIKA <<<" << endl;
+      system("cls");
+    cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Dodaj adresata" << endl;
-    cout << "2. Wyswietl adresatow" << endl;
-    cout << "3. Zmien haslo" << endl;
-    cout << "9. Wyloguj" << endl;
+    cout << "2. Wyszukaj po imieniu" << endl;
+    cout << "3. Wyszukaj po nazwisku" << endl;
+    cout << "4. Wyswietl adresatow" << endl;
+    cout << "5. Usun adresata" << endl;
+    cout << "6. Edytuj adresata" << endl;
+    cout << "---------------------------" << endl;
+    cout << "7. Zmien haslo" << endl;
+    cout << "8. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     wybor = MetodyPomocnicze::wczytajZnak();
@@ -86,6 +91,23 @@ char wybor;
 
 }
 
+void KsiazkaAdresowa::edytujAdresata(){
+adresatManager -> edytujAdresata();
+}
+
+void KsiazkaAdresowa::usunAdresata(){
+adresatManager -> usunAdresata();
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu(){
+adresatManager -> wyszukajAdresatowPoImieniu();
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku(){
+adresatManager -> wyszukajAdresatowPoNazwisku();
+}
+
 bool KsiazkaAdresowa::czyUzytkownikJestZalogowany() {
 return uzytkownikManager.czyUzytkownikJestZalogowany();
 }
+
