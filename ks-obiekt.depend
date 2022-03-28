@@ -61,7 +61,7 @@
 	"PlikiZAdresatami.h"
 	"UzytkownikManager.h"
 
-1648417974 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
+1648495930 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
 	<iostream>
 	<fstream>
 	<vector>
@@ -108,7 +108,7 @@
 	<algorithm>
 	"MetodyPomocnicze.h"
 
-1648419730 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
+1648498577 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
 	"PlikiZAdresatami.h"
 	"AdresatManager.h"
 
@@ -123,7 +123,7 @@
 	"PlikiZAdresatami.h"
 	"AdresatManager.h"
 
-1648408338 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\main.cpp
+1648492435 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\main.cpp
 	<iostream>
 	<cstdlib>
 	"KsiazkaAdresowa.h"
@@ -133,7 +133,7 @@
 1648419730 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\pliktekstowy.cpp
 	"PlikTekstowy.h"
 
-1648419730 c:\users\pawe許desktop\codeblocks\adressbookobject-\pliktekstowy.h
+1648495930 c:\users\pawe許desktop\codeblocks\adressbookobject-\pliktekstowy.h
 	<iostream>
 	<fstream>
 
