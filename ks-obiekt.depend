@@ -61,7 +61,7 @@
 	"PlikiZAdresatami.h"
 	"UzytkownikManager.h"
 
-1648495930 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
+1648594572 c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.h
 	<iostream>
 	<fstream>
 	<vector>
@@ -108,7 +108,7 @@
 	<algorithm>
 	"MetodyPomocnicze.h"
 
-1648498577 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
+1648595218 source:c:\users\pawe許desktop\codeblocks\adressbookobject-\plikizadresatami.cpp
 	"PlikiZAdresatami.h"
 	"AdresatManager.h"
 

@@ -219,6 +219,8 @@ void PlikiZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata)
         numerWczytanejLinii++;
 
         }
+        if (pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia) == idUsuwanegoAdresata)
+            IdOstatniegoAdresata--;
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
