@@ -193,7 +193,7 @@ void PlikiZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa)
 void PlikiZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata)
 {
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
-    string wczytanaLinia = "";
+    string wczytanaLinia = "", daneOstatniegoAdresataWPliku = "";
     int numerWczytanejLinii = 1;
     int numerUsuwanejLinii = 0;
 
@@ -219,12 +219,25 @@ void PlikiZAdresatami::usunWybranaLinieWPliku(int idUsuwanegoAdresata)
         numerWczytanejLinii++;
 
         }
-        if (pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia) == idUsuwanegoAdresata)
-            IdOstatniegoAdresata--;
+
         odczytywanyPlikTekstowy.close();
         tymczasowyPlikTekstowy.close();
 
         usunPlik(pobierzNazwePliku());
         zmienNazwePliku(NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI, pobierzNazwePliku());
+        IdOstatniegoAdresata = pobierIdOstatniegoAdresataZPliku();
     }
+}
+
+int PlikiZAdresatami::pobierIdOstatniegoAdresataZPliku(){
+
+    fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
+    string wczytanaLinia = "";
+    odczytywanyPlikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
+    while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
+        {}
+    odczytywanyPlikTekstowy.close();
+
+    return pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia);
+
 }
